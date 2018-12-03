@@ -10,18 +10,14 @@ import {
 class RadioButton extends React.Component {
 
   _onChange = (event) => {
-    //this.refs['RCTRadioButton'].setNativeProps({on: this.props.value});
-
     this.props.onChange && this.props.onChange(event);
     this.props.onValueChange && this.props.onValueChange(event.nativeEvent.event);
   }
 
   render() {
-
     return (
       <RCTRadioButton
-        ref={'RCTRadioButton'}
-        style={[this.props.style, styles.radioButton]}
+        style={[styles.radioButton, this.props.style]}
         on={this.props.value}
         disabled={this.props.disabled}
         onChange={this._onChange}
