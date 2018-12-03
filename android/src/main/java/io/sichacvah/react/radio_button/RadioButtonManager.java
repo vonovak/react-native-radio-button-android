@@ -1,5 +1,6 @@
 package io.sichacvah.react.radio_button;
 
+import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
@@ -16,7 +17,7 @@ public class RadioButtonManager extends SimpleViewManager<RadioButtonView> {
     new CompoundButton.OnCheckedChangeListener() {
       @Override 
       public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        ThemedReactContext reactContext = (ThemedReactContext) buttonView.getContext();
+        ReactContext reactContext = (ReactContext) buttonView.getContext();
         reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher().dispatchEvent(
             new RadioButtonEvent(
               buttonView.getId(),
