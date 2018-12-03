@@ -4,10 +4,6 @@ import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import android.widget.CompoundButton;
-import android.content.ContextWrapper;
-
-import com.facebook.react.bridge.ReactContext;
-import com.facebook.react.common.SystemClock;
 import com.facebook.react.uimanager.UIManagerModule;
 import com.facebook.react.uimanager.ViewProps;
 
@@ -20,11 +16,10 @@ public class RadioButtonManager extends SimpleViewManager<RadioButtonView> {
     new CompoundButton.OnCheckedChangeListener() {
       @Override 
       public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        ReactContext reactContext = (ReactContext) ((ContextWrapper) buttonView.getContext()).getBaseContext();
+        ThemedReactContext reactContext = (ThemedReactContext) buttonView.getContext();
         reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher().dispatchEvent(
             new RadioButtonEvent(
               buttonView.getId(),
-              SystemClock.nanoTime(),
               isChecked));
       }
     };

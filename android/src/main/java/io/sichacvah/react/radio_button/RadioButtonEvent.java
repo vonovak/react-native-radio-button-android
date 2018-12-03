@@ -12,7 +12,7 @@ class RadioButtonEvent extends Event<RadioButtonEvent> {
 
   private final boolean mIsChecked;
 
-  public RadioButtonEvent(int viewId, long timestampMs, boolean isChecked) {
+  public RadioButtonEvent(int viewId, boolean isChecked) {
     super();
     init(viewId);
     mIsChecked = isChecked;
