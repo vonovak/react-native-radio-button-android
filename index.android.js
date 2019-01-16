@@ -1,19 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types'
-import {
-  View,
-  StyleSheet,
-  requireNativeComponent,
-  ViewPropTypes
-} from 'react-native';
+import PropTypes from 'prop-types';
+import { View, StyleSheet, requireNativeComponent, ViewPropTypes } from 'react-native';
 
-class RadioButton extends React.Component {
+const RCTRadioButton = requireNativeComponent('RCTRadioButtonAndroid', RadioButton, {
+  nativeOnly: { onChange: true, on: true },
+});
 
-  _onChange = (event) => {
-    this.props.onChange && this.props.onChange(event);
-    this.props.onValueChange && this.props.onValueChange(event.nativeEvent.event);
-  }
-
+export default class RadioButton extends React.Component {
   render() {
     return (
       <RCTRadioButton
@@ -21,11 +14,14 @@ class RadioButton extends React.Component {
         on={this.props.value}
         disabled={this.props.disabled}
         onChange={this._onChange}
-        />
+      />
     );
   }
+  _onChange = event => {
+    this.props.onChange && this.props.onChange(event);
+    this.props.onValueChange && this.props.onValueChange(event.nativeEvent.event);
+  };
 }
-
 
 RadioButton.defaultProps = {
   value: false,
@@ -44,10 +40,5 @@ RadioButton.propTypes = {
   text: PropTypes.string,
   onValueChange: PropTypes.func,
   disabled: PropTypes.bool,
-  ...ViewPropTypes
+  ...ViewPropTypes,
 };
-
-const RCTRadioButton = requireNativeComponent('RCTRadioButtonAndroid', RadioButton, {
-  nativeOnly: { onChange: true, on: true }
-});
-export default RadioButton;
