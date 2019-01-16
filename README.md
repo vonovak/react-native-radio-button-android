@@ -23,7 +23,7 @@ import RadioBtn from 'react-native-radio-button-android';
 
 <Radio
   value={this.state.selected}
-  disabled={this.state.selected}
+  disabled={this.state.disabled}
   onChange={fullEvent => {
     //do something
   }}
