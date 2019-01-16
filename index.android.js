@@ -19,7 +19,7 @@ export default class RadioButton extends React.Component {
   }
   _onChange = event => {
     this.props.onChange && this.props.onChange(event);
-    this.props.onValueChange && this.props.onValueChange(event.nativeEvent.event);
+    this.props.onValueChange && this.props.onValueChange(event.nativeEvent.value);
   };
 }
 
@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
 });
 
 RadioButton.propTypes = {
-  value: PropTypes.bool,
-  text: PropTypes.string,
+  value: PropTypes.bool.isRequired,
+  onChange: PropTypes.func,
   onValueChange: PropTypes.func,
   disabled: PropTypes.bool,
   ...ViewPropTypes,

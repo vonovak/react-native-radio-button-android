@@ -8,7 +8,34 @@ Native Android radio-button component, orignally forked from [here](https://gith
 yarn add react-native-radio-button-android
 // or with npm
 npm i react-native-radio-button-android --save
+
+// then link the native module, or use manual installation instructions
+react-native link react-native-radio-button-android
+
+// rebuild the project
+react-native run-android
 ```
+
+## Usage
+
+```js
+import RadioBtn from 'react-native-radio-button-android';
+
+<Radio
+  value={this.state.selected}
+  disabled={this.state.selected}
+  onChange={fullEvent => {
+    //do something
+  }}
+  onValueChange={isSet => {
+    this.setState({
+      selected: isSet,
+    });
+  }}
+/>;
+```
+
+#### Manual installation instructions
 
 1. `android/settings.gradle`:: Add the following snippet
 
