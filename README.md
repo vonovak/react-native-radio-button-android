@@ -1,6 +1,6 @@
 # React Native Radio button for Android
 
-Native Android radio-button component, orignally forked from [here](https://github.com/sichacvah/react-native-radio-button-android).
+Native Android radio-button component, originally forked from [here](https://github.com/sichacvah/react-native-radio-button-android).
 
 ## Installation
 
@@ -22,14 +22,14 @@ react-native run-android
 import RadioBtn from 'react-native-radio-button-android';
 
 <Radio
-  value={this.state.selected}
-  disabled={this.state.disabled}
+  value={this.state.isSelected}
+  disabled={this.state.isDisabled}
   onChange={fullEvent => {
     //do something
   }}
-  onValueChange={isSet => {
+  onValueChange={isSelected => {
     this.setState({
-      selected: isSet,
+      isSelected,
     });
   }}
 />;
