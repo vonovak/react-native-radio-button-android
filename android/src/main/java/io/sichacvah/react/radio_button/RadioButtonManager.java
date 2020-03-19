@@ -5,6 +5,9 @@ import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import android.widget.CompoundButton;
+
+import androidx.annotation.NonNull;
+
 import com.facebook.react.uimanager.UIManagerModule;
 import com.facebook.react.uimanager.ViewProps;
 
@@ -32,14 +35,14 @@ public class RadioButtonManager extends SimpleViewManager<RadioButtonView> {
   }
 
   @Override
-  protected RadioButtonView createViewInstance(ThemedReactContext context) {
+  protected RadioButtonView createViewInstance(@NonNull ThemedReactContext context) {
     RadioButtonView view = new RadioButtonView(context);
     view.setOnCheckedChangeListener(ON_CHECKED_CHANGE_LISTENER);
     return view;
   }
 
   @Override
-  protected void addEventEmitters(final ThemedReactContext reactContext, final RadioButtonView view) {
+  protected void addEventEmitters(@NonNull ThemedReactContext reactContext, final RadioButtonView view) {
     view.setOnCheckedChangeListener(ON_CHECKED_CHANGE_LISTENER);
   }
 
